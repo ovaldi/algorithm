@@ -5,16 +5,16 @@ function quick_sort (arr) {
 
   let midx = Math.floor(arr.length / 2);
   let mval = arr.splice(midx, 1)[0];
-  let left = [];
-  let right = [];
+  let prev = [];
+  let next = [];
 
   for (let i = 0, j = arr.length; i < j; i++) {
     if (arr[i] < mval) {
-      left.push(arr[i]);
+      prev.push(arr[i]);
     } else {
-      right.push(arr[i]);
+      next.push(arr[i]);
     }
   }
 
-  return quick_sort(left).concat([mval], quick_sort(right));
+  return quick_sort(prev).concat([mval], quick_sort(next));
 }
